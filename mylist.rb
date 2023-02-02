@@ -9,7 +9,7 @@ class MyList
   end
 
   def each
-    @list.each { |i| yield i }
+    @list.each { |i| yield i if block_given? }
   end
 end
 
@@ -21,4 +21,5 @@ list.all? { |e| e > 5 }
 list.any? { |e| e == 2 }
 list.any? { |e| e == 5 }
 
-list.filter { |e| e.even? }
+# list.filter { |e| e.even? }
+list.filter(&:even?)
