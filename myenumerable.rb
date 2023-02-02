@@ -9,6 +9,11 @@ module MyEnumerable
   end
 
   def any?
+    result = false
+    each do |i| yield i 
+    result = result || (yield i)
+    end
+    puts result
   end
 
   def filter
